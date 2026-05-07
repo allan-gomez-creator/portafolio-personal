@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Allan Samuel Gómez Pérez — Desarrollador Junior Backend & Especialista en Automatización Ágil. Portafolio profesional." />
+  <meta name="author" content="Allan Samuel Gómez Pérez" />
+  <title>Allan Gómez | Desarrollador Backend Junior</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&family=Figtree:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Hoja de estilos -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Canvas de partículas (fondo animado) -->
+  <canvas id="bgCanvas" aria-hidden="true"></canvas>
+
+  <!-- Orbe decorativo inferior -->
+  <div class="orb-bottom" aria-hidden="true"></div>
+
+  <!-- Cursor personalizado (visible solo en desktop) -->
+  <div class="cursor"      id="cursor"      aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing"  aria-hidden="true"></div>
+
+  <!-- =================================================
+       NAVBAR
+  ================================================= -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Menú principal">
+    <div class="container navbar__inner">
+
+      <a href="#inicio" class="navbar__logo" aria-label="Ir al inicio">
+        Allan<span>.dev</span>
+      </a>
+
+      <ul class="navbar__links" role="list">
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#experiencia">Experiencia</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+
+      <button
+        class="hamburger"
+        id="hamburger"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="mobileMenu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- Menú móvil overlay -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menú de navegación">
+    <a href="#sobre-mi"    class="mobile-link">Sobre mí</a>
+    <a href="#experiencia" class="mobile-link">Experiencia</a>
+    <a href="#habilidades" class="mobile-link">Habilidades</a>
+    <a href="#proyectos"   class="mobile-link">Proyectos</a>
+    <a href="#contacto"    class="mobile-link">Contacto</a>
+  </div>
+
+  <!-- =================================================
+       HERO
+  ================================================= -->
+  <section class="hero" id="inicio" aria-label="Sección de inicio">
+    <div class="container">
+      <div class="hero__content">
+
+        <p class="hero__greeting">// Hola, soy</p>
+
+        <h1 class="hero__name">
+          Allan Samuel<br>Gómez Pérez
+        </h1>
+
+        <!-- El JS escribe el texto con efecto typewriter -->
+        <p class="hero__title">
+          Desarrollador Junior Backend &amp; Especialista en Automatización Ágil
+        </p>
+
+        <p class="hero__sub">
+          Construyo la arquitectura y lógica detrás de soluciones tecnológicas eficientes.
+        </p>
+
+        <div class="hero__ctas">
+          <a href="#proyectos" class="btn btn--primary">Ver mis proyectos</a>
+          <a href="#contacto"  class="btn btn--outline">Contactar</a>
+        </div>
+
+      </div>
+
+      <div class="scroll-indicator" aria-hidden="true">
+        <span>scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================
+       SOBRE MÍ
+  ================================================= -->
+  <section id="sobre-mi" aria-labelledby="sobre-mi-title">
+    <div class="container">
+
+      <p class="section-label reveal">01 — Sobre mí</p>
+
+      <div class="about__grid">
+
+        <div class="about__text">
+          <h2 id="sobre-mi-title" class="reveal">
+            Más que código:<br>soluciones con<br><em>contexto real.</em>
+          </h2>
+
+          <p class="reveal reveal-delay-1">
+            Soy un Ingeniero de Software en formación (3.° semestre, modelo dual en Uniempresarial),
+            con experiencia real operando en <strong style="color:var(--text-primary)">fUSoft</strong>,
+            una fábrica de software donde cada tarea tiene impacto directo en productos activos.
+            No solo escribo código: entiendo los problemas que los negocios necesitan resolver
+            y construyo las soluciones que los hacen eficientes.
+          </p>
+
+          <p class="reveal reveal-delay-2">
+            Mi enfoque combina bases backend sólidas —Python, Flask, MongoDB— con el poder del
+            ecosistema Low-Code/No-Code (Zapier, Glide, Airtable, Webflow), lo que me permite
+            diseñar automatizaciones ágiles que aceleran flujos de trabajo. Me adapto rápido,
+            aprendo más rápido y siempre busco la solución más limpia al problema más complejo.
+          </p>
+        </div>
+
+        <!-- Stat chips: tienen tilt 3D aplicado por JS -->
+        <div class="about__stats reveal reveal-delay-3">
+          <div class="stat-chip">
+            <span class="stat-chip__number">3.°</span>
+            <span class="stat-chip__label">Semestre - Ingeniería Software</span>
+          </div>
+          <div class="stat-chip">
+            <span class="stat-chip__number">Dual</span>
+            <span class="stat-chip__label">Modelo educativo</span>
+          </div>
+          <div class="stat-chip">
+            <span class="stat-chip__number">ATS</span>
+            <span class="stat-chip__label">Proyecto en producción</span>
+          </div>
+          <div class="stat-chip">
+            <span class="stat-chip__number">4+</span>
+            <span class="stat-chip__label">Herramientas No-Code</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================
+       EXPERIENCIA
+  ================================================= -->
+  <section id="experiencia" aria-labelledby="experiencia-title">
+    <div class="container">
+
+      <p class="section-label reveal">02 — Experiencia</p>
+      <h2 id="experiencia-title" class="reveal" style="font-size:clamp(1.8rem,5vw,2.6rem); margin-bottom:2.5rem;">
+        Donde construyo cosas reales.
+      </h2>
+
+      <!-- Tarjeta con tilt 3D + spotlight aplicados por JS -->
+      <div class="experience__card reveal">
+        <div class="exp__header">
+          <div>
+            <p class="exp__role">Desarrollador Backend Junior</p>
+            <p class="exp__company">fUSoft — Fábrica de Soluciones Tecnológicas</p>
+          </div>
+          <span class="exp__date">2024 — Presente</span>
+        </div>
+
+        <p class="exp__body">
+          Desarrollo e implementación de funcionalidades backend para un
+          <strong style="color:var(--text-primary)">Sistema de Seguimiento de Candidatos (ATS)</strong>
+          en ambiente de producción real. Responsable de la programación de la lógica de
+          <strong style="color:var(--text-primary)">autenticación segura</strong>,
+          gestión de roles de usuario y estructuración de bases de datos.
+          Participación activa en sprints ágiles con equipos multidisciplinarios, asegurando
+          la integridad del sistema y la escalabilidad de la arquitectura definida.
+        </p>
+
+        <div class="exp__tags">
+          <span class="tag">Python</span>
+          <span class="tag">Flask</span>
+          <span class="tag">MongoDB</span>
+          <span class="tag">Autenticación JWT</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">Gestión de Roles</span>
+          <span class="tag">Metodologías Ágiles</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =================================================
+       HABILIDADES
+  ================================================= -->
+  <section id="habilidades" aria-labelledby="habilidades-title">
+    <div class="container">
+
+      <p class="section-label reveal">03 — Habilidades</p>
+      <h2 id="habilidades-title" class="skills__title reveal">Mi stack tecnológico.</h2>
+      <p class="skills__subtitle reveal">Herramientas con las que construyo, automatizo y resuelvo.</p>
+
+      <!-- Skill cards: tilt 3D + spotlight + icono animado -->
+      <div class="skills__grid">
+
+        <div class="skill-card reveal reveal-delay-1">
+          <div class="skill-card__icon" aria-hidden="true">🐍</div>
+          <p class="skill-card__cat">Backend &amp; Lenguajes</p>
+          <div class="skill-card__pills">
+            <span class="pill">Python</span>
+            <span class="pill">Flask</span>
+            <span class="pill">REST APIs</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal reveal-delay-2">
+          <div class="skill-card__icon" aria-hidden="true">🗄️</div>
+          <p class="skill-card__cat">Bases de Datos</p>
+          <div class="skill-card__pills">
+            <span class="pill">MongoDB</span>
+            <span class="pill">NoSQL</span>
+            <span class="pill">Modelado de datos</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal reveal-delay-3">
+          <div class="skill-card__icon" aria-hidden="true">⚡</div>
+          <p class="skill-card__cat">Automatización &amp; No-Code</p>
+          <div class="skill-card__pills">
+            <span class="pill">Zapier</span>
+            <span class="pill">Glide</span>
+            <span class="pill">Airtable</span>
+            <span class="pill">Webflow</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal reveal-delay-4">
+          <div class="skill-card__icon" aria-hidden="true">🛠️</div>
+          <p class="skill-card__cat">Herramientas</p>
+          <div class="skill-card__pills">
+            <span class="pill">Git</span>
+            <span class="pill">GitHub</span>
+            <span class="pill">Scrum</span>
+            <span class="pill">Postman</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================
+       PROYECTOS
+  ================================================= -->
+  <section id="proyectos" aria-labelledby="proyectos-title">
+    <div class="container">
+
+      <p class="section-label reveal">04 — Proyectos</p>
+      <h2 id="proyectos-title" class="projects__title reveal">Lo que viene.</h2>
+      <p class="projects__subtitle reveal">
+        Proyectos en desarrollo. Cada tarjeta es una solución real a un problema real.
+      </p>
+
+      <!-- Project cards: tilt 3D + spotlight + orbe de fondo -->
+      <div class="projects__grid">
+
+        <div class="project-card project-card--soon reveal reveal-delay-1">
+          <div class="project-card__status">
+            <span class="dot" aria-hidden="true"></span>
+            En desarrollo · Proyecto propio
+          </div>
+          <h3 class="project-card__title">Gestor Ágil de Créditos y Flujo de Caja (Retail)</h3>
+          <p class="project-card__desc">
+            MVP móvil para digitalizar el control de cuentas por cobrar ("fiados") en micronegocios.
+            Resuelve la fuga de capital mediante modelado de bases de datos relacionales
+            y cálculo automático de deudas en tiempo real.
+          </p>
+          <div class="project-card__tags">
+            <span class="project-tag">Glide (Low-Code)</span>
+            <span class="project-tag">Data Modeling</span>
+            <span class="project-tag">Mobile-First UI</span>
+          </div>
+        </div>
+
+        <div class="project-card project-card--soon reveal reveal-delay-2">
+          <div class="project-card__status">
+            <span class="dot" aria-hidden="true"></span>
+            En desarrollo · Proyecto en equipo
+          </div>
+          <h3 class="project-card__title">BNB Pets — App Móvil para el Cuidado Animal</h3>
+          <p class="project-card__desc">
+            Plataforma en tiempo real para conectar dueños de mascotas con cuidadores confiables.
+            Permite reservar servicios de cuidado, seguimiento en vivo y gestión de citas.
+          </p>
+          <div class="project-card__tags">
+            <span class="project-tag">Glide (Low-Code)</span>
+            <span class="project-tag">UX/UI Design</span>
+            <span class="project-tag">APIs Geolocalización</span>
+            <span class="project-tag">Pagos</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================
+       CONTACTO
+  ================================================= -->
+  <section id="contacto" class="contact" aria-labelledby="contacto-title">
+    <div class="container">
+      <div class="contact__inner">
+
+        <p class="section-label reveal" style="justify-content:center;">05 — Contacto</p>
+
+        <h2 id="contacto-title" class="contact__title reveal">
+          ¿Tienes un<br>proyecto en mente? <em>Hablemos.</em>
+        </h2>
+
+        <p class="contact__sub reveal">
+          Abierto a oportunidades laborales, colaboraciones y proyectos freelance.
+          Escribeme y conversamos sobre cómo puedo aportar valor a tu equipo.
+        </p>
+
+        <!-- Contact links: tilt 3D + spotlight -->
+        <div class="contact__links reveal">
+
+          <a
+            href="https://www.linkedin.com/in/tu-usuario"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-link"
+            aria-label="Ver perfil de LinkedIn"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+            LinkedIn
+          </a>
+
+          <a
+            href="https://github.com/tu-usuario"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-link"
+            aria-label="Ver perfil de GitHub"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+            </svg>
+            GitHub
+          </a>
+
+          <a
+            href="mailto:perezallan811@gmail.com"
+            class="contact-link"
+            aria-label="Enviar correo electrónico"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+            perezallan811@gmail.com
+          </a>
+
+          <!-- WhatsApp — redirige a la app con mensaje predefinido -->
+          <a
+            href="https://wa.me/573193132712?text=Hola%20Allan%2C%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20conversar%20contigo%20sobre%20una%20oportunidad%20%F0%9F%91%8B"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-link contact-link--whatsapp"
+            aria-label="Escribir por WhatsApp"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+            </svg>
+            WhatsApp
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================
+       FOOTER
+  ================================================= -->
+  <footer role="contentinfo">
+    <div class="container">
+      <p>© 2025 <a href="#inicio">Allan Gómez</a>. Diseñado y construido con intención.</p>
+      <p>Hecho con HTML · CSS · JS</p>
+    </div>
+  </footer>
+
+  <!-- Script al final del body -->
+  <script src="script.js"></script>
+
+</body>
+</html>
