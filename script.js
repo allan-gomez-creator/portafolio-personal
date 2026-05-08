@@ -153,7 +153,7 @@
 (function initCardEffects() {
   /* Selecciona todas las tarjetas interactivas */
   const cards = document.querySelectorAll(
-    '.skill-card, .project-card, .experience__card, .stat-chip, .contact-link'
+    '.skill-card, .project-card, .experience__card, .stat-chip, .contact-link, .community-card'
   );
 
   cards.forEach(card => {
